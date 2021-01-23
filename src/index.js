@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  
+let names = [
+  { name: 'rick'},
+  { name: 'morty'},
+  { name: 'summer'},
+  { name: 'jerry'}
+]
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+let allNames = names.reduce(function(last, name) {
+  return <div>
+    {last} {name.name}
+  </div>
+}, '')
+  return(
+    <div>
+      <h1>Rick and Morty</h1>
+      <h3>{allNames}</h3>
+    </div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
